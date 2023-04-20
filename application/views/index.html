@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Theme Made By www.w3schools.com -->
+    <title>Howdog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            font: 400 15px Lato, sans-serif;
+            line-height: 1.8;
+            color: #818181;
+        }
+
+        h2 {
+            font-size: 24px;
+            text-transform: uppercase;
+            color: #303030;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        h4 {
+            font-size: 19px;
+            line-height: 1.375em;
+            color: #303030;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+
+        .jumbotron {
+            background-color: #f4511e;
+            color: #fff;
+            padding: 100px 25px;
+            font-family: Montserrat, sans-serif;
+        }
+
+        .container-fluid {
+            padding: 60px 50px;
+        }
+
+        .bg-grey {
+            background-color: #f6f6f6;
+        }
+
+        .logo-small {
+            color: #f4511e;
+            font-size: 50px;
+        }
+
+        .logo {
+            color: #f4511e;
+            font-size: 200px;
+        }
+
+        .thumbnail {
+            padding: 0 0 15px 0;
+            border: none;
+            border-radius: 0;
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            margin-bottom: 10px;
+        }
+
+        .carousel-control.right,
+        .carousel-control.left {
+            background-image: none;
+            color: #f4511e;
+        }
+
+        .carousel-indicators li {
+            border-color: #f4511e;
+        }
+
+        .carousel-indicators li.active {
+            background-color: #f4511e;
+        }
+
+        .item h4 {
+            font-size: 19px;
+            line-height: 1.375em;
+            font-weight: 400;
+            font-style: italic;
+            margin: 70px 0;
+        }
+
+        .item span {
+            font-style: normal;
+        }
+
+        .panel {
+            border: 1px solid #f4511e;
+            border-radius: 0 !important;
+            transition: box-shadow 0.5s;
+        }
+
+        .panel:hover {
+            box-shadow: 5px 0px 40px rgba(0, 0, 0, .2);
+        }
+
+        .panel-footer .btn:hover {
+            border: 1px solid #f4511e;
+            background-color: #fff !important;
+            color: #f4511e;
+        }
+
+        .panel-heading {
+            color: #fff !important;
+            background-color: #f4511e !important;
+            padding: 25px;
+            border-bottom: 1px solid transparent;
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+        }
+
+        .panel-footer {
+            background-color: white !important;
+        }
+
+        .panel-footer h3 {
+            font-size: 32px;
+        }
+
+        .panel-footer h4 {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        .panel-footer .btn {
+            margin: 15px 0;
+            background-color: #f4511e;
+            color: #fff;
+        }
+
+        .navbar {
+            margin-bottom: 0;
+            background-color: #f4511e;
+            z-index: 9999;
+            border: 0;
+            font-size: 12px !important;
+            line-height: 1.42857143 !important;
+            letter-spacing: 4px;
+            border-radius: 0;
+            font-family: Montserrat, sans-serif;
+        }
+
+        .navbar li a,
+        .navbar .navbar-brand {
+            color: #fff !important;
+        }
+
+        .navbar-nav li a:hover,
+        .navbar-nav li.active a {
+            color: #f4511e !important;
+            background-color: #fff !important;
+        }
+
+        .navbar-default .navbar-toggle {
+            border-color: transparent;
+            color: #fff !important;
+        }
+
+        footer .glyphicon {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #f4511e;
+        }
+
+        .slideanim {
+            visibility: hidden;
+        }
+
+        .slide {
+            animation-name: slide;
+            -webkit-animation-name: slide;
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            visibility: visible;
+        }
+
+        @keyframes slide {
+            0% {
+                opacity: 0;
+                transform: translateY(70%);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0%);
+            }
+        }
+
+        @-webkit-keyframes slide {
+            0% {
+                opacity: 0;
+                -webkit-transform: translateY(70%);
+            }
+
+            100% {
+                opacity: 1;
+                -webkit-transform: translateY(0%);
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .col-sm-4 {
+                text-align: center;
+                margin: 25px 0;
+            }
+
+            .btn-lg {
+                width: 100%;
+                margin-bottom: 35px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .logo {
+                font-size: 150px;
+            }
+        }
+    </style>
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#myPage">HowDog</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#certification">인증서 발급</a></li>
+                    <li><a href="#record">진료기록 및 예후등록</a></li>
+                    <li><a href="#query">사례조회</a></li>
+                    <li><a href="#history">이력조회</a></li>
+                    <li><a href="#verify">영수증 검증</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="jumbotron text-center">
+        <h1>HowDog</h1>
+        <p>반려동물 진료기록 서비스 </p>
+
+    </div>
+
+    <!-- 인증서 등록 -->
+    <div id="certification" class="container-fluid">
+        <div class="row">
+            <div class="col-sm-8">
+                <h2>ABOUT How Dog</h2><br>
+                <h4>저희 웹 사이트는 반려동물의 진료기록을 등록하고 조회하는 서비스를 제공합니다 </h4><br>
+                <p>진료기록에 블록체인기술을 적용하여 신뢰가능하고 투명하게 진료기록을 관리할 수 있습니다<br> 
+                    저희 서비스를 사용하기 위해 관리자 인증서와 사용자 인증서를 생성해 보세요!! </p><br>
+                <a href='./adminwallet.html' class="btn btn-default btn-lg">관리자 인증서 생성</a>
+                <a href='./userwallet.html' class="btn btn-default btn-lg">사용자 인증서 생성</a>
+
+            </div>
+            <div class="col-sm-4">
+                <span><img src="images/hospi.png" alt="dogimage" width="300px" height="300px"></span>
+            </div>
+        </div>
+    </div>
+
+     <!-- 진료기록 등록 -->
+    <div id="record" class="container-fluid bg-grey">
+        <div class="row">
+            <div class="col-sm-8">
+                <h2>Registrater</h2><br>
+                <h4>인증서 발급을 완료하셨나요? 이제 진료기록을 작성하고 확인해보세요!!</h4><br>
+                <p>병원에서 발급받은 영수증을 번호를 입력하고 진료기록과 예후를 등록 할 수 있습니다.</p>
+                <br><a href='./register.html' class="btn btn-default btn-lg">영수증 및 진료기록 등록</a>
+                <a href='./prognosis.html' class="btn btn-default btn-lg">예후 등록</a> <br>
+            </div>
+            <div class="col-sm-4">
+                <span><img src="images/animal.png" alt="dogimage" width="300px" height="300px"></span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 사례조회 -->
+    <div id="query" class="container-fluid">
+        <div class="row">
+            <div class="col-sm-8">
+                <h2>Query Record</h2><br>
+                <h4>등록된 진료기록의 조회도 가능합니다!!</h4><br>
+                <p>영수증 번호를 입력해서 진료사례를 조회해보세요!! </p>
+            </div>
+            <div class="col-sm-4">
+                <label class="form-label">Certificate:</label><br>
+                <input class="form-control" type="text" id="cert" value=""><br>
+
+                <label class="form-label">Receipt ID:</label><br>
+                <input class="form-control" type="text" id="recid" value=""><br>
+                <button id="query_btn" type="button" class="btn btn-danger">사례조회</button>
+                <div>
+                    <p id="query_result"></p>
+                    <table class="table table-hover">
+                        <tbody id="query_table"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        </form>
+    </div>
+    </div>
+
+    <!-- 이력조회 -->
+    <div id="history" class="container-fluid bg-grey">
+        <div class="row">
+            <div class="col-sm-8">
+                <h2>Recipt history</h2><br>
+                <h4>진료기록의 이력이 궁금하세요?</h4><br>
+                <p>영수증 번호를 이용해 진료기록의 이력도 확인 할 수 있습니다!!</p>
+            </div>
+            <div class="col-sm-4">
+                <label class="form-label">Certificate:</label><br>
+                <input class="form-control" type="text" id="cert" value=""><br>
+
+                <label class="form-label">Receipt ID:</label><br>
+                <input class="form-control" type="text" id="recid" value=""><br>
+
+                <!-- <input class="btn btn-outline-primary" type="submit" value="Submit"> -->
+                <button id="history_btn" class="btn btn-danger">이력조회</button>
+                <div>
+                    <p id="history_result"></p>
+                    <table class="table table-hover">
+                        <tbody id="history_table">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 영수증 검증 -->
+    <div id="verify" class="container-fluid">
+        <div class="row">
+            <div class="col-sm-8">
+                <h2>Recipt Verify</h2><br>
+                <h4>수의사나 관리자 이신가요? </h4><br>
+                <p>영수증 번호를 입력해 해당 영수증을 검증해 주세요!! </p>
+                <a href='./verify.html' class="btn btn-default btn-lg">영수증검증</a>
+            </div>
+            <div class="col-sm-4">
+                <div class="col-sm-4">
+                    <span><img src="images/vet.png" alt="dogimage" width="300px" height="300px"></span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+</body>
+
+<script>
+    $("#query_btn").click(() => {
+        const cert = $("#cert").val();
+        const recid = $("#recid").val();
+
+        $.get("/howdog", { cert, recid }, (data, status) => {
+
+            if (data.result == "success") {
+                $("#query_result").empty();
+                $("#query_table").empty();
+
+                $("#query_result").append('<i class="fa-regular fa-circle-check fa-5x" ></i><br>')
+                const res = JSON.stringify(data);
+                $("#query_result").append(res);
+
+                // table update 
+                $("#query_table").empty();
+
+                $("#query_table").append("<tr><td>Gardian</td><td>" + data.message.gadian + "</td></tr>");
+                $("#query_table").append("<tr><td>RID</td><td>" + data.message.receiptid + "</td></tr>");
+                $("#query_table").append("<tr><td>DiagInfo</td><td>" + data.message.diagnosisinfo + "</td></tr>");
+                $("#query_table").append("<tr><td>Price</td><td>" + data.message.price + "</td></tr>");
+                $("#query_table").append("<tr><td>Status</td><td>" + data.message.status + "</td></tr>");
+                $("#query_table").append("<tr><td>PrognoInfo</td><td>" + data.message.prognosisinfo + "</td></tr>");
+
+
+            } else {
+                $("#query_result").empty();
+                const res = JSON.stringify(data);
+                $("#query_result").append('<i class="fa-regular fa-circle-xmark fa-5x"></i><br>')
+                $("#query_result").append(res);
+            }
+        });
+    });
+
+    $("#history_btn").click(() => {
+        const cert = $("#cert").val();
+        const recid = $("#recid").val();
+
+        $.get("/howdog/history", { cert, recid }, (data, status) => {
+
+            if (data.result == "success") {
+                $("#transfer_result").empty();
+                $("#history_table").empty();
+
+                $("#transfer_result").append('<i class="fa-regular fa-circle-check fa-5x" ></i><br>')
+                const res = JSON.stringify(data);
+                $("#transfer_result").append(res);
+
+                // table update 
+                $("#history_table").empty();
+                for (var i = 0; i < data.message.length; i++) {
+                    $("#history_table").append("<tr><td>txID</td><td>" + data.message[i].txId + "</td></tr>");
+                    $("#history_table").append("<tr><td>Record</td><td>" + JSON.stringify(data.message[i].record) + "</td></tr>");
+                    $("#history_table").append("<tr><td>Timestamp</td><td>" + data.message[i].timestamp + "</td></tr>");
+                    $("#history_table").append("<tr><td>IsDelete</td><td>" + data.message[i].isDelete + "</td></tr>");
+                }
+
+            } else {
+                $("#transfer_result").empty();
+                const res = JSON.stringify(data);
+                $("#transfer_result").append('<i class="fa-regular fa-circle-xmark fa-5x"></i><br>')
+                $("#transfer_result").append(res);
+            }
+        });
+    });
+</script>
+
+</html>
